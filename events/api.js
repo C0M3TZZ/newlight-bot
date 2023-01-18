@@ -16,6 +16,7 @@ module.exports = {
     app.use(express.json());
 
     app.post("/send/:roleId/:channelId", async (req, res) => {
+      console.log("Send");
       let roleId = req.params.roleId;
       let channelId = req.params.channelId;
       let message = "";
@@ -99,6 +100,7 @@ module.exports = {
           },
         });
       } catch (error) {
+        console.log(error);
         res.status(500).send("Missing Access");
         return;
       }
